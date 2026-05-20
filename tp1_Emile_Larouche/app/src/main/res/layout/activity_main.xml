@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/couleurs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#673AB7"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/orange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FF9800"
+            android:tag="#FF9800" />
+
+        <Button
+            android:id="@+id/jaune"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FFC107"
+            android:tag="#FFC107" />
+
+        <Button
+            android:id="@+id/blanc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#F6F3F3"
+            android:tag="#F6F3F3" />
+
+        <Button
+            android:id="@+id/noir"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#020101"
+            android:tag="#020101" />
+
+        <Button
+            android:id="@+id/rose"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#E91E63"
+            android:tag="#E91E63" />
+
+        <Button
+            android:id="@+id/rouge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#F44336"
+            android:tag="#F44336" />
+
+        <Button
+            android:id="@+id/cyan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#00BCD4"
+            android:tag="#00BCD4" />
+
+        <Button
+            android:id="@+id/vert"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#8BC34A"
+            android:tag="#8BC34A" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/images"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/crayon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="crayon"
+                app:srcCompat="@drawable/crayon" />
+
+            <ImageButton
+                android:id="@+id/efface"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="efface"
+                app:srcCompat="@drawable/efface" />
+
+            <ImageButton
+                android:id="@+id/remplir"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="remplir"
+                app:srcCompat="@drawable/remplir" />
+
+            <ImageButton
+                android:id="@+id/cercle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="cercle"
+                app:srcCompat="@drawable/cercle" />
+
+            <ImageButton
+                android:id="@+id/triangle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="triangle"
+                app:srcCompat="@drawable/triangle" />
+
+            <ImageButton
+                android:id="@+id/enregistrer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="enregistrer"
+                app:srcCompat="@drawable/enregistrer" />
+
+            <ImageButton
+                android:id="@+id/largeur"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="largeur"
+                app:srcCompat="@drawable/largeur_trait" />
+
+            <ImageButton
+                android:id="@+id/palette"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="palette"
+                app:srcCompat="@drawable/palette" />
+
+            <ImageButton
+                android:id="@+id/pipette"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="pipette"
+                app:srcCompat="@drawable/pipette" />
+
+            <ImageButton
+                android:id="@+id/rectangle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="rectangle"
+                app:srcCompat="@drawable/rectangle" />
+
+            <ImageButton
+                android:id="@+id/redo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="redo"
+                app:srcCompat="@drawable/redo" />
+
+            <ImageButton
+                android:id="@+id/undo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="undo"
+                app:srcCompat="@drawable/undo" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>
