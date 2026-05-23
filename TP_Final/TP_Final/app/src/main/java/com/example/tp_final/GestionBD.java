@@ -42,7 +42,7 @@ public class GestionBD extends SQLiteOpenHelper {
         return instance;
     }
     private GestionBD(@Nullable Context context) { // doit toujour etre private !
-        super(context, "annexe15", null, 1);
+        super(context, "tpFinal", null, 1);
         this.context = context;
         ouvrieConnexionBD();
     }

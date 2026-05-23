@@ -15,7 +15,6 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     GestionBD instance;
-    Button boutonJouer;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -31,11 +30,5 @@ public class MainActivity extends AppCompatActivity {
 
         instance = GestionBD.getInstance(getApplicationContext());
 
-
-
     }
-
-
-
-
 }
