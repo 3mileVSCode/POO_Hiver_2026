@@ -9,11 +9,16 @@ public class Jeu {
     private int scoreTotal;
     private ArrayList<String> motsTrouves;
 
+
     public Jeu () {
         this.grille = new GrilleDeJeu();
         this.mot = new Mot();
         this.scoreTotal = 0;
         this.motsTrouves = new ArrayList<>();
+
+
+
+
     }
 
     public void ajouterLettre(Lettre l) {
@@ -28,5 +33,13 @@ public class Jeu {
         }
 
         return bd.motExiste(s);
+    }
+
+    public GrilleDeJeu getGrille() {
+        return grille;
+    }
+
+    public int getScoreTotal() {
+        return scoreTotal;
     }
 }

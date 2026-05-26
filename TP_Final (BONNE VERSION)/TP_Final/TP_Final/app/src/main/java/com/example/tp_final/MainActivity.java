@@ -8,10 +8,12 @@ import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -25,6 +27,10 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     GestionBD instance;
+    private Jeu jeu;
+    private TextView motEnCours, pointsTotal, pointsMot;
+    private SeekBar sb;
+    private CountDownTimer timer;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -41,8 +47,37 @@ public class MainActivity extends AppCompatActivity {
         //instance de BD
         instance = GestionBD.getInstance(getApplicationContext());
 
+        sb = findViewById(R.id.seekBar);
+        sb.setMax(75000);
+        sb.setProgress(75000);
+        sb.setEnabled(false); //pour enlever que la barre est interactive
+
+        timer = new CountDownTimer(75000, 1) {
+            @Override
+            public void onFinish() {
+                sb.setProgress(0);
+                //CHANGER L'ÉCRAN A UN ECRAN DE SCORE etc
+                //Intent i = new Intent(MainActivity.this, FinDePartie.class);
+                //startActivity(i);
+            }
+
+            @Override
+            public void onTick(long msRestant) {
+                int ms = (int)msRestant;
+                sb.setProgress(ms);
+            }
+        }.start();
+
+        motEnCours = findViewById(R.id.mot);
+        pointsMot = findViewById(R.id.pointsMot);
+        pointsTotal = findViewById(R.id.pointsPartie);
+
         //mon écouteur
         Ecouteur e = new Ecouteur();
+        jeu = new Jeu();
+        Lettre[][] lettres = jeu.getGrille().getTabLettres();
+
+
 
         TableLayout tl = findViewById(R.id.tableLayout);
         for (int i = 0; i < tl.getChildCount(); i++){
@@ -51,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 Composante composante = (Composante) row.getChildAt(j);
                 composante.setOnDragListener(e);
                 composante.setOnTouchListener(e);
+                composante.setLettre(lettres[i][j]);
             }
         }
     }

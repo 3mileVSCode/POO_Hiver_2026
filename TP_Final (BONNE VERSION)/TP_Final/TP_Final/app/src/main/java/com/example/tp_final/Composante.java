@@ -14,6 +14,7 @@ import com.example.tp_final.R;
 
 public class Composante extends ConstraintLayout {
     private TextView lettre,bonus,points;
+    //private Lettre l;
 
 
     public Composante(@NonNull Context context) {
@@ -34,32 +35,37 @@ public class Composante extends ConstraintLayout {
     private void init(Context context){
         //boutton.xml
         LayoutInflater.from(context).inflate(R.layout.lettre,this,true);
-        //initialiser les composantes internes avec findmy id
+        //initialiser les composantes internes avec find my id
         lettre = findViewById(R.id.lettre);
         bonus = findViewById(R.id.bonus);
         points = findViewById(R.id.points);
     }
 
     public void setLettre(Lettre l) {
+        //this.l = l;
         lettre.setText(String.valueOf(l.getLettre()));
         points.setText(String.valueOf(l.getLettre()));
 
         //Affichage selon le multiplicapteur
         switch (l.getMultiplicateur()) {
             case DOUBLE_LETTRE:
-                bonus.setText("x2L");
+                bonus.setText("2L");
                 setBackgroundColor(Color.parseColor("#AADDFF"));
                 break;
             case TRIPLE_LETTRE:
-                bonus.setText("x3L");
+                bonus.setText("3L");
                 setBackgroundColor(Color.parseColor("#FFDD88"));
                 break;
             case MOT_DOUBLE:
-                bonus.setText("x2M");
+                bonus.setText("2M");
                 setBackgroundColor(Color.parseColor("#FFAAAA"));
                 break;
             default:
                 bonus.setText("");
         }
+    }
+
+    public void setPoints(Jeu jeu){
+        points.setText(String.valueOf(jeu.getScoreTotal()));
     }
 }
