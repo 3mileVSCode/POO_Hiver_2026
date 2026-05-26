@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40sp"
+        android:layout_marginBottom="60sp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/pointsMot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Points du mot" />
+
+        <TextView
+            android:id="@+id/pointsPartie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Points de la partie" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40sp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Mot qui se forme" />
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40sp"
+        android:gravity="center">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+
+            <com.example.tp_final.Composante
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="75000" />
+</LinearLayout>
