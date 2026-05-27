@@ -61,6 +61,7 @@ public class GestionBD extends SQLiteOpenHelper {
     public void ouvrieConnexionBD(){
         database = this.getWritableDatabase();
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         try {
