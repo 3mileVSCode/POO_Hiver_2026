@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.DragEvent;
@@ -24,6 +25,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
 
     GestionBD instance;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView motEnCours, pointsTotal, pointsMot;
     private SeekBar sb;
     private CountDownTimer timer;
+    String wordConstruction;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -71,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         motEnCours = findViewById(R.id.mot);
         pointsMot = findViewById(R.id.pointsMot);
         pointsTotal = findViewById(R.id.pointsPartie);
+        wordConstruction = "";
 
         //mon écouteur
         Ecouteur e = new Ecouteur();
@@ -95,19 +100,25 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onTouch(View view, MotionEvent e) {
             if (e.getAction() == MotionEvent.ACTION_DOWN) {
-                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+                ShadowInvisible shadowBuilder = new ShadowInvisible();
                 view.startDragAndDrop(null, shadowBuilder, view, 0); // démarre le drag
                 System.out.println("WOW BRAVO");
             }
             return true;
         }
-
+        Drawable normal = getResources().getDrawable(R.drawable.background_contenant,null);
+        Drawable selectionne = getResources().getDrawable(R.drawable.background_contenant_selectionne,null);
         @Override
         public boolean onDrag(View view, DragEvent e) {
+            Composante c = (Composante) view;
+
             if (e.getAction() == DragEvent.ACTION_DRAG_ENTERED) {
                 // Mettre en surbrillance la zone cible (feedback visuel)
-                view.setVisibility(INVISIBLE);
                 System.out.println("ACTION_DRAG_ENTERED");
+                view.setBackground(selectionne); //changer les couleur dans les drwables xml
+                TextView caseActuelle = c.findViewById(R.id.lettre);
+                wordConstruction += caseActuelle.getText();
+                motEnCours.setText(wordConstruction);
             }
             if (e.getAction() == DragEvent.ACTION_DRAG_EXITED) {
                 // Enlever la surbrillance
@@ -116,10 +127,13 @@ public class MainActivity extends AppCompatActivity {
             if (e.getAction() == DragEvent.ACTION_DROP) {
                 // Traiter les données droppées
                 System.out.println("ACTION_DROP");
+                view.setBackground(normal);
+                wordConstruction = "";
+                motEnCours.setText(wordConstruction);
             }
             if (e.getAction() == DragEvent.ACTION_DRAG_ENDED) {
+                view.setBackground(normal);
                 // Nettoyer / reset l'UI peu importe ce qui s'est passé
-                view.setVisibility(VISIBLE);
             }
 
             return true;

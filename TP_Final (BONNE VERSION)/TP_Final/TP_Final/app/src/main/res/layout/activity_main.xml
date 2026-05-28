@@ -63,7 +63,8 @@
             <com.example.tp_final.Composante
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="15sp" />
+                android:layout_margin="15sp"
+                android:background="@drawable/background_contenant" />
 
             <com.example.tp_final.Composante
                 android:layout_width="match_parent"
