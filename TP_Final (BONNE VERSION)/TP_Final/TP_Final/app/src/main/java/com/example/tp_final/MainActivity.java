@@ -3,6 +3,7 @@ package com.example.tp_final;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Canvas;
@@ -31,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
     GestionBD instance;
     private Jeu jeu;
-    private TextView motEnCours, pointsTotal, pointsMot;
+    private TextView motEnCours;
+    private TextView pointsTotal;
+    private TextView pointsMot;
     private SeekBar sb;
     private CountDownTimer timer;
     String wordConstruction;
@@ -128,8 +131,16 @@ public class MainActivity extends AppCompatActivity {
                 // Traiter les données droppées
                 System.out.println("ACTION_DROP");
                 view.setBackground(normal);
+                if (!instance.motExiste(wordConstruction)){
+                    ObjectAnimator shake = ObjectAnimator.ofFloat(motEnCours, "translationX",
+                            0f, 30f, -30f, 30f, -30f);
+                    shake.setDuration(450);
+                    shake.start();
+                } else {
+                    
+                }
                 wordConstruction = "";
-                motEnCours.setText(wordConstruction);
+                motEnCours.setText("");
             }
             if (e.getAction() == DragEvent.ACTION_DRAG_ENDED) {
                 view.setBackground(normal);

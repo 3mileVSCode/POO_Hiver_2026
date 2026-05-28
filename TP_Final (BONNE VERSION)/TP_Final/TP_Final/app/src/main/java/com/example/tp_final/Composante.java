@@ -50,15 +50,12 @@ public class Composante extends ConstraintLayout {
         switch (l.getMultiplicateur()) {
             case DOUBLE_LETTRE:
                 bonus.setText("2L");
-                setBackgroundColor(Color.parseColor("#AADDFF"));
                 break;
             case TRIPLE_LETTRE:
                 bonus.setText("3L");
-                setBackgroundColor(Color.parseColor("#FFDD88"));
                 break;
             case MOT_DOUBLE:
                 bonus.setText("2M");
-                setBackgroundColor(Color.parseColor("#FFAAAA"));
                 break;
             default:
                 bonus.setText("");

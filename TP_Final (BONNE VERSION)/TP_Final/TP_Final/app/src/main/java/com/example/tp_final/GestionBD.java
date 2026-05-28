@@ -72,6 +72,7 @@ public class GestionBD extends SQLiteOpenHelper {
 
     }
     public boolean motExiste(String nom){
+        nom = nom.toLowerCase();
         String[] tab = {nom};
         Cursor c = database.rawQuery("SELECT * FROM lexique WHERE ortho = ?",tab);
         boolean rep =  c.moveToFirst();
