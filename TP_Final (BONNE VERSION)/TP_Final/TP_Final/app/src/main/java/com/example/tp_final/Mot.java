@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Mot {
     private ArrayList<Lettre> mot = new ArrayList<>();
-
+    private int pointsMot;
     public void ajoutLettreAuMot(Lettre l) { mot.add(l); }
     public void resetMot() { mot.clear(); }
     public boolean estVide() { return mot.isEmpty(); }

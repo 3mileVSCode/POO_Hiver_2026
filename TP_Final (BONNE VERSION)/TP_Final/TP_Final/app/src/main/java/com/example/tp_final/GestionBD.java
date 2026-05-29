@@ -58,6 +58,10 @@ public class GestionBD extends SQLiteOpenHelper {
         br.close(); // meme chose que le cursor.
         return compteur;
     }
+
+
+
+
     public void ouvrieConnexionBD(){
         database = this.getWritableDatabase();
     }

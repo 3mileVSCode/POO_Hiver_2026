@@ -15,14 +15,9 @@ public class Jeu {
         this.mot = new Mot();
         this.scoreTotal = 0;
         this.motsTrouves = new ArrayList<>();
-
-
-
-
     }
 
     public void ajouterLettre(Lettre l) {
-        //AJOUTER LES VERIFICATIONS
         mot.ajoutLettreAuMot(l);
     }
 
@@ -33,6 +28,15 @@ public class Jeu {
         }
 
         return bd.motExiste(s);
+    }
+
+
+    public Mot getMot() {
+        return mot;
+    }
+
+    public void setMot(Mot mot) {
+        this.mot = mot;
     }
 
     public GrilleDeJeu getGrille() {

@@ -14,7 +14,7 @@ import com.example.tp_final.R;
 
 public class Composante extends ConstraintLayout {
     private TextView lettre,bonus,points;
-    //private Lettre l;
+    private Lettre l;
 
 
     public Composante(@NonNull Context context) {
@@ -42,9 +42,9 @@ public class Composante extends ConstraintLayout {
     }
 
     public void setLettre(Lettre l) {
-        //this.l = l;
+        this.l = l;
         lettre.setText(String.valueOf(l.getLettre()));
-        points.setText(String.valueOf(l.getLettre()));
+        points.setText(String.valueOf(l.getPoints()));
 
         //Affichage selon le multiplicapteur
         switch (l.getMultiplicateur()) {
@@ -64,5 +64,13 @@ public class Composante extends ConstraintLayout {
 
     public void setPoints(Jeu jeu){
         points.setText(String.valueOf(jeu.getScoreTotal()));
+    }
+
+    public void setL(Lettre l) {
+        this.l = l;
+    }
+
+    public Lettre getL() {
+        return l;
     }
 }

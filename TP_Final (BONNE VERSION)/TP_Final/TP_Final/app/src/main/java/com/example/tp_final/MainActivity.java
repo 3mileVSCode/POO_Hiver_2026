@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     GestionBD instance;
     private Jeu jeu;
+    private Mot mot;
+    private int scoreTotal;
     private TextView motEnCours;
     private TextView pointsTotal;
     private TextView pointsMot;
@@ -56,16 +58,16 @@ public class MainActivity extends AppCompatActivity {
 
         sb = findViewById(R.id.seekBar);
         sb.setMax(75000);
-        sb.setProgress(75000);
+        sb.setProgress(5000);
         sb.setEnabled(false); //pour enlever que la barre est interactive
 
-        timer = new CountDownTimer(75000, 1) {
+        timer = new CountDownTimer(5000, 1) {
             @Override
             public void onFinish() {
                 sb.setProgress(0);
-                //CHANGER L'ÉCRAN A UN ECRAN DE SCORE etc
-                //Intent i = new Intent(MainActivity.this, FinDePartie.class);
-                //startActivity(i);
+                //inserer score dans table
+                Intent i = new Intent(MainActivity.this, FinDePartie.class);
+                startActivity(i);
             }
 
             @Override
@@ -79,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         pointsMot = findViewById(R.id.pointsMot);
         pointsTotal = findViewById(R.id.pointsPartie);
         wordConstruction = "";
+
 
         //mon écouteur
         Ecouteur e = new Ecouteur();
@@ -120,6 +123,9 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("ACTION_DRAG_ENTERED");
                 view.setBackground(selectionne); //changer les couleur dans les drwables xml
                 TextView caseActuelle = c.findViewById(R.id.lettre);
+                jeu.getMot().ajoutLettreAuMot(c.getL());
+
+
                 wordConstruction += caseActuelle.getText();
                 motEnCours.setText(wordConstruction);
             }
@@ -136,14 +142,19 @@ public class MainActivity extends AppCompatActivity {
                             0f, 30f, -30f, 30f, -30f);
                     shake.setDuration(450);
                     shake.start();
+                    jeu.getMot().resetMot();
                 } else {
-                    
+                    int pointsDuMot = jeu.getMot().calculerValeurMot();
+                    scoreTotal += pointsDuMot;
+                    pointsTotal.setText(String.valueOf(scoreTotal));
+                    jeu.getMot().resetMot();
                 }
                 wordConstruction = "";
                 motEnCours.setText("");
             }
             if (e.getAction() == DragEvent.ACTION_DRAG_ENDED) {
                 view.setBackground(normal);
+
                 // Nettoyer / reset l'UI peu importe ce qui s'est passé
             }
 
